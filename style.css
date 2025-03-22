@@ -2,117 +2,75 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f5f5f5;
     color: #333;
-    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
+    width: 10cm;
+    height: 2cm;
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #2c3e50;
-}
-
-h3 {
-    margin-bottom: 15px;
-    color: #3498db;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-}
-
-.user-profile {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.avatar-container {
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding: 0.2cm;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    justify-content: space-between;
+    overflow: hidden;
 }
 
-.avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #3498db;
+.connection-panel {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 0.6em;
 }
 
-#username {
-    text-align: center;
-    padding: 8px;
-    border-radius: 20px;
-    border: 1px solid #ddd;
-    width: 150px;
+.room-info {
+    display: flex;
+    align-items: center;
 }
 
-.connection-controls, .recording-controls, .language-settings {
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-}
-
-.language-settings {
+.controls-panel {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 15px;
+    align-items: center;
+    margin-top: 0.1cm;
 }
 
 .language-selector {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.1cm;
+    font-size: 1.2em;
 }
 
-.controls, .join-room {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-    justify-content: center;
+select {
+    padding: 0.1cm;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    font-size: 0.6em;
+    width: 3cm;
 }
 
 button {
-    padding: 10px 20px;
+    padding: 0.1cm 0.2cm;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     cursor: pointer;
-    font-size: 16px;
-    transition: all 0.3s;
+    font-size: 0.6em;
     display: flex;
     align-items: center;
-    gap: 8px;
-}
-
-.primary-btn {
-    background-color: #3498db;
-    color: white;
-}
-
-.primary-btn:hover {
-    background-color: #2980b9;
+    gap: 0.1cm;
+    height: 0.8cm;
 }
 
 .action-btn {
@@ -120,205 +78,16 @@ button {
     color: white;
 }
 
-.action-btn:hover {
-    background-color: #27ae60;
-}
-
-button:disabled {
-    background-color: #95a5a6;
-    cursor: not-allowed;
-}
-
-input, select {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-}
-
-select {
-    cursor: pointer;
-}
-
-#roomInfo {
-    margin-top: 15px;
-    padding: 10px;
-    background-color: #ecf0f1;
-    border-radius: 5px;
-}
-
-.communication-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.transcript-container, .received-container {
-    margin-bottom: 20px;
-    position: relative;
-}
-
-.transcript {
-    min-height: 200px;
-    max-height: 300px;
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    white-space: pre-wrap;
-    overflow-y: auto;
-}
-
-.speaking-indicator {
-    position: absolute;
-    top: -10px;
-    left: 20px;
+.action-btn.muted {
     background-color: #e74c3c;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 14px;
-    display: none;
-    z-index: 10;
-    animation: pulse 1.5s infinite;
-}
-
-.speaking-indicator i {
-    margin-right: 5px;
-}
-
-#recordingStatus, #connectionStatus, #translationStatus {
-    font-style: italic;
-    text-align: center;
-}
-
-.translation-status {
-    margin-top: 20px;
-    text-align: center;
-    color: #7f8c8d;
 }
 
 .connected {
     color: #27ae60;
     font-weight: bold;
 }
-.translation-loading {
-    font-style: italic;
-    color: #7f8c8d;
-    margin-top: 5px;
-}
 
-.translation-error {
-    color: #e74c3c;
-    font-style: italic;
-    margin-top: 5px;
-}
-
-/* Add these styles for the audio button */
-.audio-btn {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    margin-left: 10px;
-    transition: all 0.2s;
-}
-
-.audio-btn:hover {
-    background-color: #2980b9;
-}
-
-.audio-btn:disabled {
-    background-color: #95a5a6;
-    cursor: not-allowed;
-}
-
-.audio-settings {
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.translated-text {
-    display: flex;
-    align-items: center;
-    margin-top: 5px;
-}
-/* Add these styles for the continuous mode and audio settings */
-.continuous-mode, .audio-settings {
-    margin: 10px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.continuous-mode label, .audio-settings label {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-.continuous-mode input, .audio-settings input {
-    margin-right: 8px;
-}
-
-.recording {
+.disconnected {
     color: #e74c3c;
     font-weight: bold;
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.5; }
-    100% { opacity: 1; }
-}
-
-.audio-btn {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    margin-left: 10px;
-    transition: all 0.2s;
-}
-
-.audio-btn:hover {
-    background-color: #2980b9;
-}
-
-.audio-btn:disabled {
-    background-color: #95a5a6;
-    cursor: not-allowed;
-}
-
-.translated-text {
-    display: flex;
-    align-items: center;
-    margin-top: 5px;
-}
-
-.translation-loading {
-    font-style: italic;
-    color: #7f8c8d;
-    margin-top: 5px;
-}
-
-.translation-error {
-    color: #e74c3c;
-    font-style: italic;
-    margin-top: 5px;
 }
